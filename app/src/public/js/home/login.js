@@ -6,7 +6,6 @@ const id = document.querySelector("#id"),
   loginBtn = document.querySelector("button");
 
 loginBtn.addEventListener("click", login);
-
 //로그인 버튼을 눌렀을 때 id값을 가져오는 함수 선언
 //요청하는 데이터니까 req변수에 obj로 담아줌
 function login() {
