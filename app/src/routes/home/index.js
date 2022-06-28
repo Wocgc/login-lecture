@@ -10,6 +10,7 @@ const ctrl = require("./home.ctrl");
 router.get("/", ctrl.output.hello);
 router.get("/login", ctrl.output.login);
 router.post("/login", ctrl.process.login);
+
 module.exports = router;
 
 //index.js를 app.js로 연결

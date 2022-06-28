@@ -23,5 +23,14 @@ function login() {
     body: JSON.stringify(req), //JSON을 이용해서 데이터를 전달해야함
   })
     .then((res) => res.json())
-    .then((res) => {});
+    .then((res) => {
+      if (res.success) {
+        location.href = "/";
+      } else {
+        alert(res.msg);
+      }
+    })
+    .catch((err) => {
+      console.error(new Error("로그인 중 에러 발생"));
+    });
 }
