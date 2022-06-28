@@ -7,9 +7,9 @@ const router = express.Router();
 //ctrl안에 있는 hello와 login 불러와 연결함
 const ctrl = require("./home.ctrl");
 
-router.get("/", ctrl.hello);
-router.get("/login", ctrl.login);
-
+router.get("/", ctrl.output.hello);
+router.get("/login", ctrl.output.login);
+router.post("/login", ctrl.process.login);
 module.exports = router;
 
 //index.js를 app.js로 연결

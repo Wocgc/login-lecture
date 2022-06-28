@@ -14,7 +14,6 @@ function login() {
     id: id.value,
     psword: psword.value,
   };
-  console.log(req);
   fetch("/login", {
     //fetch를 이용해서 서버가 클라이언트에게 전달하는 과정
     method: "post",
@@ -22,5 +21,7 @@ function login() {
       "Content-Type": "application/Json",
     },
     body: JSON.stringify(req), //JSON을 이용해서 데이터를 전달해야함
-  });
+  })
+    .then((res) => res.json())
+    .then((res) => {});
 }
