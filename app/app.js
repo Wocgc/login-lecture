@@ -10,6 +10,7 @@ const home = require("./src/routes/home");
 //app 세팅
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
+app.use(express.static(`${__dirname}/src/public`));
 
 app.use("/", home);
 //home을 저장하고 만들어진 index.js 파일의 경로를 명시해줌
