@@ -15,7 +15,7 @@ function login() {
   };
   fetch("/login", {
     //fetch를 이용해서 서버가 클라이언트에게 전달하는 과정
-    method: "post",
+    method: "POST",
     headers: {
       "Content-Type": "application/Json",
     },
