@@ -2,18 +2,23 @@
 
 // querySelector 직역하면 질의 선택자이고 파라미터에서 받아오는 선택자를 통해서 html의 값을 가져올 수 있음
 const id = document.querySelector("#id"),
+  name = document.querySelector("#name"),
   psword = document.querySelector("#psword"),
-  loginBtn = document.querySelector("#button");
+  confirmPsword = document.querySelector("#confirm-psword"),
+  registerBtn = document.querySelector("#button");
 
-loginBtn.addEventListener("click", login);
+registerBtn.addEventListener("click", register);
 //로그인 버튼을 눌렀을 때 id값을 가져오는 함수 선언
 //요청하는 데이터니까 req변수에 obj로 담아줌
-function login() {
+function register() {
   const req = {
     id: id.value,
+    name: name.value,
     psword: psword.value,
+    confirmPsword: confirmPsword.value,
   };
-  fetch("/login", {
+
+  fetch("/register", {
     //fetch를 이용해서 서버가 클라이언트에게 전달하는 과정
     method: "POST",
     headers: {
@@ -24,12 +29,12 @@ function login() {
     .then((res) => res.json())
     .then((res) => {
       if (res.success) {
-        location.href = "/";
+        location.href = "/login";
       } else {
         alert(res.msg);
       }
     })
     .catch((err) => {
-      console.error(new Error("로그인 중 에러 발생"));
+      console.error(new Error("회원가입 중 에러 발생"));
     });
 }
