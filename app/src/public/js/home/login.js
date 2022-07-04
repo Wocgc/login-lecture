@@ -9,6 +9,8 @@ loginBtn.addEventListener("click", login);
 //로그인 버튼을 눌렀을 때 id값을 가져오는 함수 선언
 //요청하는 데이터니까 req변수에 obj로 담아줌
 function login() {
+  if (!id.value) return alert("아이디를 입력해주십시오.");
+  if (!psword.value) return alert("비밀번호를 입력해주십시오.");
   const req = {
     id: id.value,
     psword: psword.value,
@@ -26,6 +28,7 @@ function login() {
       if (res.success) {
         location.href = "/";
       } else {
+        if (res.err) return alert(res.err);
         alert(res.msg);
       }
     })

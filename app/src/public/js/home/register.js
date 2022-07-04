@@ -6,6 +6,7 @@ const id = document.querySelector("#id"),
   psword = document.querySelector("#psword"),
   confirmPsword = document.querySelector("#confirm-psword"),
   registerBtn = document.querySelector("#button");
+
 registerBtn.addEventListener("click", register);
 
 //로그인 버튼을 눌렀을 때 id값을 가져오는 함수 선언
@@ -33,6 +34,7 @@ function register() {
       if (res.success) {
         location.href = "/login";
       } else {
+        if (res.err) return alert(res.err);
         alert(res.msg);
       }
     })
